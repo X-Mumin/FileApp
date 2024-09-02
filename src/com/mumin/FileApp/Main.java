@@ -1,22 +1,21 @@
 package com.mumin.FileApp;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
 
         try {
-            File file = new File("C:\\Users\\MUMIN\\Desktop\\test.txt");
+            FileWriter myWriter = new FileWriter("file.txt");
 
-            if (file.createNewFile()) {
-                System.out.println("File created: " + file.getName());
-                System.out.println(file.getAbsolutePath());
-            } else if (file.exists()) {
-                System.out.println("File already exists.");
-                System.out.println(file.getAbsolutePath());
-            }
+            myWriter.write("Hello, World!");
+            myWriter.close();
 
-        } catch (Exception e) {
+            System.out.println("Done");
+
+        } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
