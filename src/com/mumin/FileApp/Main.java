@@ -8,23 +8,22 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        try {
 
             File file = new File("file.txt");
 
-            Scanner reader = new Scanner(file);
-
-            while (reader.hasNextLine()) {
-                String data = reader.nextLine();
-                System.out.println(data);
+            if (file.exists()) {
+                System.out.println("File already exists.");
+                System.out.println("File name: " + file.getName());
+                System.out.println("Absolute path: " + file.getAbsolutePath());
+                System.out.println("Writable: " + file.canWrite());
+                System.out.println("Readable: " + file.canRead());
+                System.out.println("File size in bytes: " + file.length());
             }
 
-            reader.close();
+            else {
+                System.out.println("the file does not exist");
+            }
 
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
 
     }
 }
