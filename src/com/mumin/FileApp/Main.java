@@ -8,22 +8,16 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+        File myFile = new File("file.txt");
 
-            File file = new File("file.txt");
+        if (myFile.delete()) {
 
-            if (file.exists()) {
-                System.out.println("File already exists.");
-                System.out.println("File name: " + file.getName());
-                System.out.println("Absolute path: " + file.getAbsolutePath());
-                System.out.println("Writable: " + file.canWrite());
-                System.out.println("Readable: " + file.canRead());
-                System.out.println("File size in bytes: " + file.length());
-            }
+            System.out.println("Deleted the file: " + myFile.getName());
 
-            else {
-                System.out.println("the file does not exist");
-            }
+        } else {
 
+            System.out.println("Failed to delete the file.");
+        }
 
     }
 }
